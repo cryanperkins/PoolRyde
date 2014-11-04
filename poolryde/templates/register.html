@@ -1,0 +1,11 @@
+{% extends "index.html" %}
+{% block register %}
+<h3>Register</h3>
+{% for field in form %}
+{{field.error}}
+{% endfor %}
+<form action="/register/" method="post">{% csrf_token %}
+{{form}}
+<input type="submit" value="Register" />
+</form>
+{% endblock register%}
