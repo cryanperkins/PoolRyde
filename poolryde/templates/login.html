@@ -1,8 +1,10 @@
 {% extends 'index.html' %}
 {% block login %}
-{% if form.errors %}
-<p class="alert alert-error">Invalid username/password</p>
-{% endif %}
+
+    {% if form.errors %}
+    <p class="alert alert-error">Invalid username/password</p>
+    {% endif %}
+
 <form action="/authenticate/" method="post">
 {% csrf_token %}
 <label for="username">User name:</label>
@@ -11,5 +13,9 @@
 <input type="password" name="password" value="" id="password">
 <input type="submit" value="login" />
 </form>
-{% endblock login %}
+    <div class="register">
+        {% block register %}
 
+        {% endblock register %}
+    </div>
+{% endblock login %}

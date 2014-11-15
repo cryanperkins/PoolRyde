@@ -22,7 +22,7 @@
     <!-- Custom CSS -->
     <link href="{% static 'css/stylish-portfolio.css' %}" rel="stylesheet">
     <!--Custom JS -->
-    <script type="text/javascript" src="{% static 'poolrydejs.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/poolrydejs.js' %}"></script>
 
     <!-- Custom Fonts -->
     <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
@@ -72,6 +72,9 @@
             <li>
                 <a href="#contact">Contact</a>
             </li>
+            <li>
+                <a href="#article_class_view"> Blog</a>
+            </li>
 
             <li>
 
@@ -85,12 +88,16 @@
 
     <header id="top" class="header">
         <div class="text-vertical-center">
-{% block register_success %}
-{% endblock register_success %}
+
+
             <h1 class="text">POOL RYDE</h1>
             <h3 class="subtext"><span>Why Uber when you can PoolRyde</span></h3>
             <br>
             <a href="#about" class="btn btn-dark btn-lg">Find Out More</a>
+
+            <div class="content">
+
+            </div>
         </div>
     </header>
 
@@ -100,13 +107,23 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2>The Smart Solution for Today's Commuter</h2>
-                    <a id="link1" href="javascript:display('show', 1)">Death to Traffic</a>
+                    <a id="link1" href="javascript:display('show', 1)">Log In or Register</a>
                     <div id="explanation1"
-                         style="display:none">Be one of the first to sign up as a driver!  With a planned public launch date in Portland, Oregon in 2015 be one of the first to sign up.  The more trips you make as a driver using the app in the first two years from launch date the more shares in the company you will gain.   The driving motivation behind PoolRyde is not only finding a sustainable solution to the problem of traffic and pollution,  connecting people with each other, and making your commute quicker, easier, and more efficient, but also demonstrating that every good idea doesn’t have to turn into a “big business” idea that disproportionately profits the 1%.
+                         style="display:none">{% block login %}
+                {% endblock login %}
                     </div>
-                    {% block login %}
-            {% endblock login %}
                 </div>
+                    <div class="content">
+
+
+                {% block login_success %}
+                    {% endblock login_success %}
+                {% block register_success %}
+                {% endblock register_success %}
+                </div>
+            {% block profile %}
+            {% endblock profile %}
+
             </div>
             <!-- /.row -->
         </div>
@@ -195,8 +212,8 @@
             </div>
         </div>
     </aside>
-                    {% block register %}
-                    {% endblock register %}
+{#                    {% block register %}#}
+{#                    {% endblock register %}#}
     <!-- Portfolio -->
 <aside class="call-to-action bg-primary">
     <section id="portfolio" class="portfolio">
@@ -299,26 +316,7 @@
 
 </script>
 
-<script type="text/javascript">
 
-function display(action, id)
-{
-if (action == 'show')
-{
-document.getElementById("explanation"+id).style.display = "block";
-document.getElementById("link"+id).href= "javascript:display('hide', "+id+")";
-document.getElementById("link"+id).innerHTML = "Close";
-}
-
-if (action == 'hide')
-{
-document.getElementById("explanation"+id).style.display = "none";
-document.getElementById("link"+id).href= "javascript:display('show', "+id+")";
-document.getElementById("link"+id).innerHTML = "Death to Traffic";
-}
-}
-
-</script>
 
 
 <script src="../static/js/main.js"></script>

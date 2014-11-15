@@ -9,7 +9,11 @@ from models import SignUp
  #   class Meta:
  #       model = SignUp
 
+#Model Form Shortcut
 class SignUpForms(forms.ModelForm):
+    class Meta:
+        model = SignUp
+
     def __init__(self, *args, **kwargs):
         super(SignUpForms, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
@@ -18,7 +22,7 @@ class SignUpForms(forms.ModelForm):
         self.helper.field_class = 'col-sm-4 blue'
         self.helper.layout = Layout('first_name', 'last_name', 'email', 'phone',)
         self.helper.form_method = 'post'
-        self.helper.add_input(Submit('submit', 'Submit'))
+        self.helper.add_input(Submit('submit', 'Sign Up'))
 
     first_name = forms.CharField(
         label='First Name:',
@@ -44,5 +48,3 @@ class SignUpForms(forms.ModelForm):
         required=False,
     )
 
-    class Meta:
-        model = SignUp

@@ -36,19 +36,19 @@ def register(request):
         if form. is_valid():
             form.save()
             return HttpResponseRedirect('/register_success')
+
     else:
         form = MyRegistrationForm()
-        token = {}
-        token.update(csrf(request))
-        token['form'] = form
+    token = {}
+    token.update(csrf(request))
+    token['form'] = form
 
     return render_to_response('register.html', token)
 
 def register_success(request):
     return render_to_response('register_success.html')
 
-def register_fail(request):
-    return render_to_response('register_fail.html')
+
 
 def invalid(request):
     return render_to_response('invalid.html')

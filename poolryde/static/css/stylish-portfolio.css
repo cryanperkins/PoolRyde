@@ -5,6 +5,13 @@
 
 /* Global Styles */
 
+
+div.content {
+   float: left;
+    padding-top: 70px;
+}
+
+
 html,
 body {
     width: 100%;
@@ -265,6 +272,7 @@ header {
     position: relative;
     margin-bottom: 30px;
 }
+
 
 
 
