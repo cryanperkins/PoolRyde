@@ -3,6 +3,7 @@ __author__ = 'C. Ryan Perkins'
 from django import forms
 from models import UserProfile
 
+
 class UserProfileForm(forms.ModelForm):
 
     class Meta:

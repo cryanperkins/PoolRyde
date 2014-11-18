@@ -1,4 +1,4 @@
-
+{% extends 'index.html' %}
 {% load staticfiles %}
 {% load crispy_forms_tags %}
 {% block edit_profile %}
@@ -7,20 +7,17 @@
 {#    <div class="row centered-form">#}
 {#        <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">#}
 {#        	<div class="panel panel-default">#}
-        		<div class="panel-heading">
-			    		<h3>Edit Profile</h3>
+
+			    <h3>Edit Profile</h3>
 
                 {% for field in form %}
                 {{field.error}}
                 {% endfor %}
-                <form action="/edit_profile/" method="post">{% csrf_token %}
+                <form action='' method="POST">
+                {% csrf_token %}
                 {{form.as_p}}
-                <input type="submit" value="Edit" />
+                <input type="submit" value="Edit">
                 </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 {% endblock edit_profile %}
