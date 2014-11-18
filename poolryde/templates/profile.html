@@ -3,8 +3,9 @@
 {% block profile %}
 
 
-    <h2>Hi {{ profile_description }}</h2>
-    <p>click <a href="edit/">here</a> to edit your profile</p>
+    <h2>Hi {{ username }}</h2>
+    <p> {{ self_description }} </p>
+
 <div class="profile" id="profile_view-{{ profile.d }}">
 <p class="work">{{ profile.line_of_work }}</p>
 </form>

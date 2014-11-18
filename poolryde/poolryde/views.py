@@ -45,13 +45,14 @@ def register(request):
 
     return render_to_response('register.html', token)
 
+
 def register_success(request):
     return render_to_response('register_success.html')
 
 
-
 def invalid(request):
     return render_to_response('invalid.html')
+
 
 def logout(request):
     auth.logout(request)

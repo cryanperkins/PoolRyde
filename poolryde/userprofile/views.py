@@ -11,18 +11,36 @@ from django.contrib.auth.models import User
 # Create your views here.
 @login_required
 def user_profile(request):
-    userid = request.user.id
-    profile = UserProfile.objects.get(id=userid)
-    account_details = User.objects.get()
+    if request.method == 'POST':
+        form = UserProfileForm(request.POST, instance=request.user.profile)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/login_success')
+    else:
+        user = request.user
+        profile = user.profile
+        form = UserProfileForm(instance=profile)
+
+    args = {}
+    args.update(csrf(request))
+
+    args['form'] = form
+
+    return render_to_response('profile.html', args)
+
+    #userid = request.user.id
+    #user = User.objects.get(pk=userid)
+    #profile = UserProfile.objects.get(user=user.id)
+    #account_details = user
 # to do create a dictionary to pass in the logged in userprofile attributes
-    d = {}
-    d.update({"line_of_work": profile.line_of_work})
-    d.update({"hobbies": profile.hobbies})
-    d.update({"self_description": profile.self_description})
-    d.update({"owns_car": profile.owns_car})
-    d.update({"vehicle_model": profile.vehicle_model})
-    print d
-    return render_to_response('profile.html', d)
+    #d = {}
+    #d.update({"line_of_work": profile.line_of_work})
+    #d.update({"hobbies": profile.hobbies})
+    #d.update({"self_description": profile.self_description})
+    #d.update({"owns_car": profile.owns_car})
+    #d.update({"vehicle_model": profile.vehicle_model})
+    #d.update({"username": account_details.username})
+    #return render_to_response('profile.html', d)
     #template tags match {{ line_of_work }}, {{ hobbies }}, {{profile_description}},
 
 

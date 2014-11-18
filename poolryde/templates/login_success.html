@@ -1,5 +1,6 @@
 {% extends 'index.html' %}
 {% block login_success %}
-<h1>Hi, {{ first_name }}.  Good job, you successfully signed in!</h1>
-<p>click <a href="/logout/">here</a> to logout</p>
+<h2>Hi, {{ first_name }}, you are now logged in!!</h2>
+<p>Click <a href="/logout/">here</a> to logout</p>
+<p>Click<a href="/profile/edit/">here</a>to edit your profile information</p>
 {% endblock login_success %}
