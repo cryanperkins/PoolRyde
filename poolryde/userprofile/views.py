@@ -2,11 +2,11 @@ from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
 from django.core.context_processors import csrf
 #from django.views.generic import ListView
-from .models import UserProfile
-from .forms import UserProfileForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 
+from .models import UserProfile
+from .forms import UserProfileForm
 
 # Create your views here.
 @login_required
@@ -32,7 +32,7 @@ def user_profile(request):
     #user = User.objects.get(pk=userid)
     #profile = UserProfile.objects.get(user=user.id)
     #account_details = user
-# to do create a dictionary to pass in the logged in userprofile attributes
+#   to do create a dictionary to pass in the logged in userprofile attributes
     #d = {}
     #d.update({"line_of_work": profile.line_of_work})
     #d.update({"hobbies": profile.hobbies})

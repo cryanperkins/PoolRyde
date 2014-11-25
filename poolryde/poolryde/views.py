@@ -3,8 +3,10 @@ from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
 from django.contrib import auth
 from django.core.context_processors import csrf
+from userprofile.models import UserProfile
 
 from .forms import MyRegistrationForm
+from userprofile.forms import UserProfileForm
 
 
 def login(request):
@@ -15,7 +17,13 @@ def login(request):
 
 
 def login_success(request):
-    return render_to_response('login_success.html', {'first_name': request.user.username})
+    user_name = request.user.username
+    acct = auth.models.User.objects.get(username=user_name)
+    user = UserProfile.objects.get(pk=9)
+    user_data_form = {}
+    user_data_form["user_profile_detail"] = user
+    user_data_form["user_acct_detail"] = acct
+    return render_to_response('login_success.html', user_data_form)
 
 
 def authenticate(request):
@@ -56,5 +64,7 @@ def invalid(request):
 
 def logout(request):
     auth.logout(request)
-    return render_to_response('logout.html')
+    token = {}
+    token.update(csrf(request))
+    return render_to_response('logout.html', token)
 
