@@ -91,7 +91,7 @@
 
 
             <h1 class="text">POOL RYDE</h1>
-            <h3 class="subtext"><span>Why Uber when you can PoolRyde</span></h3>
+            <h3 class="subtext"><span>The Portland Way</span></h3>
             <br>
             <a href="#about" class="btn btn-dark btn-lg">Find Out More</a>
 
@@ -107,9 +107,9 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2>The Smart Solution for Today's Commuter</h2>
-                    <a id="link1" href="javascript:display('show', 1)">Log In or Register</a>
+                    <a id="link1" href="javascript:display('show', 1)">Death to Traffic</a>
                     <div id="explanation1"
-                         style="display:none">{% block login %}
+                         style="display:none">Be one of the first to sign up as a driver!  With a planned public launch date in Portland, Oregon in 2015 be one of the first to sign up.  The more trips you make as a driver using the app in the first two years from launch date the more shares in the company you will gain.   The driving motivation behind PoolRyde is not only finding a sustainable solution to the problem of traffic and pollution,  connecting people with each other, and making your commute quicker, easier, and more efficient, but also demonstrating that every good idea doesn’t have to turn into a “big business” idea that disproportionately profits the 1%.{% block login %}
                 {% endblock login %}
                     </div>
                 </div>
@@ -207,10 +207,14 @@
     <aside class="callout">
         <div class="parallax-window" data-parallax="scroll" data-image-src="{% static 'img/PoolCar.jpg' %}">
             <div class="text-vertical-middle">
+                <a  href='#about'></a>
                 <h1>Be the Answer</h1>
-                <h3><a href='#about' class="btn btn-dark-big">Join the PoolRyde Movement</a></h3>
-                {% block signup %}
+                <h3><a class="btn btn-dark-big" id="link1" href="javascript:display('show', 2)">Join the PoolRyde Movement</a></h3>
+                    <div id="explanation2"
+                         style="display:none">{% block signup %}
                 {% endblock signup %}
+                    </div>
+
             </div>
         </div>
     </aside>
@@ -248,7 +252,7 @@
     <footer>
         <div class="container">
             <div class="row">
-                <div class="col-lg-10 col-lg-offset-1 text-center">
+                <div id='contact' class="col-lg-10 col-lg-offset-1 text-center">
                     <h4><strong>PoolRyde</strong>
                     </h4>
                     <p>2626 SW Corbett AVe.<br>Portland, OR</p>
